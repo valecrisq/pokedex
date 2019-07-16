@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PokemonList from './PokemonList';
+import Searchbar from './Searchbar';
 
 import axios from 'axios';
 
@@ -16,45 +17,48 @@ const PokedexContainer = () => {
 
     useEffect(() => {
         getPokemonList();
-    }, [])
+    }, []);
 
     return (
         <div>
-            <table className='table is-bordered is-striped is-narrow is-hoverable is-fullwidth'>
-                <thead>
-                    <tr>
-                        <th>
-                            Name
+            <Searchbar pokemonList={pokemonList} />
+            <div>
+                <table className='table is-bordered is-striped is-narrow is-hoverable is-fullwidth'>
+                    <thead>
+                        <tr>
+                            <th>
+                                Name
                         </th>
-                        <th>
-                            Avatar
+                            <th>
+                                Avatar
                         </th>
-                        <th>
-                            Number
+                            <th>
+                                Number
                         </th>
-                        <th>
-                            Type
+                            <th>
+                                Type
                         </th>
-                        <th>
-                            Height
+                            <th>
+                                Height
                         </th>
-                        <th>
-                            Weight
+                            <th>
+                                Weight
                         </th>
-                        <th>
-                            Weaknesses
+                            <th>
+                                Weaknesses
                         </th>
-                        <th>
-                            Next Evolutions
+                            <th>
+                                Next Evolutions
                         </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <PokemonList pokemonList={pokemonList} />
-                </tbody>
-            </table>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <PokemonList pokemonList={pokemonList} />
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
-}
+};
 
 export default PokedexContainer;

@@ -4,6 +4,7 @@ import Pokemon from './Pokemon';
 const PokemonList = ({pokemonList}) => {
 
     const list = [...pokemonList];
+
     list.sort((a, b) => a.name.localeCompare(b.name));
 
     return list.map((pokemon) => {
@@ -17,4 +18,4 @@ const PokemonList = ({pokemonList}) => {
 
 }
 
-export default PokemonList; 
+export default PokemonList;
