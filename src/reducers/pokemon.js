@@ -4,7 +4,6 @@ const pokemon = (state = '', action) => {
     switch (action.type) {
         case POKEMON_BY_NAME: {
             const { pokemon } = action;
-
             return pokemon;
         }
 

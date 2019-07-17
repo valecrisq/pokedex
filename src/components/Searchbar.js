@@ -6,18 +6,18 @@ import { matchedPokemon } from '../actions/pokemon';
 const Searchbar = ({ pokemonList, dispatch }) => {
     const [pokemon, setPokemon] = useState('');
 
-    const searchedPokemon = pokemonList.find((pokemonFromList) => {
+    const selectedPokemon = pokemonList.find((pokemonFromList) => {
         return pokemonFromList.name === pokemon
     });
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (searchedPokemon) {
+        if (selectedPokemon) {
+            document.getElementById(selectedPokemon.num).scrollIntoView();
             dispatch(matchedPokemon({ pokemon }));
-            return window.document.getElementById(searchedPokemon.num)
         } else {
-            alert("Sorry! This pokemon doesn't exists!");
+            alert("Sorry! Can't find your Pokemon in the list!")
         }
     };
 
@@ -31,7 +31,7 @@ const Searchbar = ({ pokemonList, dispatch }) => {
                             className='input is-rounded is-info'
                             type="text"
                             maxLength="20"
-                            placeholder="Search Pokemon"
+                            placeholder="Search your Pokemon"
                             onChange={event => setPokemon(event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1))}
                         />
                     </form>
